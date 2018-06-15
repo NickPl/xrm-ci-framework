@@ -1,0 +1,57 @@
+{
+  "id": "4D2B4359-850A-4831-9998-7AD94CB63667",
+  "name": "MSCRMDataMigrationUtility",
+  "friendlyName": "MSCRM Data Migration Utility",
+  "description": "Import configuration data through the Data Migration Utility",
+  "author": "Nicolas Plourde",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "9",
+    "Minor": "0",
+    "Patch": "4"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "MSCRM Data Migration Utility",
+  "inputs": [
+    {
+      "name": "crmConnectionString",
+      "type": "string",
+      "label": "CRM Connection String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "For more information on format: https://msdn.microsoft.com/en-gb/library/mt608573.aspx"
+    },
+    {
+      "name": "crmConnectionTimeout",
+      "type": "string",
+      "label": "Crm Connection Timeout",
+      "defaultValue": "120",
+      "required": false,
+      "helpMarkDown": "CRM Connection Timeout in seconds"
+    },
+    {
+      "name": "zipPath",
+      "type": "string",
+      "label": "Data zip path",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The zip path of the data to import"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "MSCRMDataMigrationUtility.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}
